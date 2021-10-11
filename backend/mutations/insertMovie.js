@@ -1,7 +1,7 @@
 const knex = require('../db/knex');
 
-module.exports = (name, genre, rating, explicit) =>
-  knex('movies')
+module.exports = async (name, genre, rating, explicit) =>
+  await knex('movies')
     .insert({
       name,
       genre,

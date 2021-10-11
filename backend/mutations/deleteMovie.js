@@ -1,3 +1,3 @@
 const knex = require('../db/knex');
 
-module.exports = (id) => knex('movies').where('id', id).del();
+module.exports = async (id) => await knex('movies').where('id', id).del();

@@ -1,7 +1,7 @@
 const knex = require('../db/knex');
 
-module.exports = (id, name, genre, rating, explicit) =>
-  knex('movies')
+module.exports = async (id, name, genre, rating, explicit) =>
+  await knex('movies')
     .where('id', id)
     .update({
       name,

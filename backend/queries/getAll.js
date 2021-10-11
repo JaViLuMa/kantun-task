@@ -1,3 +1,3 @@
 const knex = require('../db/knex');
 
-module.exports = () => knex('movies').select('*');
+module.exports = async () => await knex('movies').select('*');
