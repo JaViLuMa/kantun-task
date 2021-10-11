@@ -1,47 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Table } from 'antd';
 
-const MoviesTable = () => {
-  const columns = [
-    {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
-      render: (text) => text,
-    },
-    {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
-    },
-    {
-      title: 'Address',
-      dataIndex: 'address',
-      key: 'address',
-    },
-  ];
+import axios from 'axios';
 
-  const data = [
-    {
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-    },
-    {
-      key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
-    },
-  ];
+import columns from './tableColumns';
+
+const MoviesTable = () => {
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios.get('/api/v1/movies').then((response) => {
+      setLoading(false);
+      setData(response.data);
+    });
+  }, []);
+
+  if (loading === true) {
+    return <h1>Loading...</h1>;
+  }
 
   return <Table columns={columns} dataSource={data} />;
 };
