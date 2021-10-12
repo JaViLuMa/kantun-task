@@ -1,9 +1,14 @@
 import React from 'react';
 
-import { MoviesTable } from '..';
+import { MoviesTable, MovieCreate } from '..';
 
 const App = () => {
-  return <MoviesTable />;
+  return (
+    <>
+      <MovieCreate />
+      <MoviesTable />
+    </>
+  );
 };
 
 export default App;
