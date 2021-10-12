@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
-import { Table } from 'antd';
-
+import Loader from 'react-loader-spinner';
 import axios from 'axios';
+
+import { Table } from 'antd';
+import { TableWrapper, LoaderWrapper } from '..';
 
 import columns from './tableColumns';
 
@@ -18,10 +20,23 @@ const MoviesTable = () => {
   }, []);
 
   if (loading === true) {
-    return <h1>Loading...</h1>;
+    return (
+      <LoaderWrapper>
+        <Loader type="Watch" color="#000000" height={100} width={100} />
+      </LoaderWrapper>
+    );
   }
 
-  return <Table columns={columns} dataSource={data} />;
+  return (
+    <TableWrapper>
+      <Table
+        columns={columns}
+        dataSource={data}
+        pagination={false}
+        rowKey="id"
+      />
+    </TableWrapper>
+  );
 };
 
 export default MoviesTable;
