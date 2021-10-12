@@ -66,3 +66,7 @@ app.delete('/api/v1/movies/:id', async (request, response) => {
 
   response.send(await queriesGetAll());
 });
+
+app.use((req, res, next) => {
+  res.status(404).send('<h1>Page not found!</h1>');
+});
