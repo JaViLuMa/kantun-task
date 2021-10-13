@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 import { Button } from 'antd';
 
@@ -7,8 +8,20 @@ import CreateMovieModal from './CreateMovieModal';
 const CreateMovie = () => {
   const [visible, setVisible] = useState(false);
 
-  const onCreate = (values) => {
-    console.log('Received values of form: ', values);
+  const onCreate = async (values) => {
+    await axios
+      .post(`/api/v1/movies`, values, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((response) => {
+        console.log('Successful');
+
+        window.location.reload();
+      })
+      .catch((error) => console.log(error));
+
     setVisible(false);
   };
 

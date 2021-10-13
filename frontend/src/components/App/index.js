@@ -1,10 +1,11 @@
 import React from 'react';
 
-import { MoviesTable, MovieCreate } from '..';
+import { MoviesTable, MovieCreate, Navbar } from '..';
 
 const App = () => {
   return (
     <>
+      <Navbar />
       <MovieCreate />
       <MoviesTable />
     </>

@@ -10,7 +10,7 @@ GET http://localhost:9000/api/v1/movies/2 HTTP/1.1
 
 ###
 
-POST http://localhost:9000/api/v1/movies?name=IME_FILMA_OVDJE&genre=Documentary&rating=2&explicit=True HTTP/1.1
+POST http://localhost:9000/api/v1/movies?name=IME_FILMA_OVDJE_TU_TEST&genre=Documentary&rating=2&explicit=False HTTP/1.1
 
 ###
 

@@ -53,7 +53,7 @@ const MoviesTable = () => {
         columns={columns}
         dataSource={data}
         pagination={false}
-        scroll={{ x: 800 }}
+        scroll={{ x: 800, y: 200 }}
         rowKey="id"
       />
     </TableWrapper>

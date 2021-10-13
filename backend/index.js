@@ -11,7 +11,7 @@ const mutationsDelete = require('./mutations/deleteMovie');
 const app = express();
 const port = 9000;
 
-app.set('json spaces', 2);
+app.use(express.json());
 
 app.listen(port, () => console.log(`listening on port: ${port}`));
 
@@ -32,10 +32,12 @@ app.get('/api/v1/movies/:id', async (request, response) => {
 });
 
 app.post('/api/v1/movies', async (request, response) => {
-  let name = request.query.name;
-  let genre = request.query.genre;
-  let rating = request.query.rating;
-  let explicit = request.query.explicit;
+  let name = request.body.name || request.query.name;
+  let genre = request.body.genre || request.query.genre;
+  let rating = request.body.rating || request.query.rating;
+  let explicit = request.body.explicit || request.query.explicit;
+
+  console.log(request.body);
 
   const results = mutationsInsert(name, genre, rating, explicit);
 

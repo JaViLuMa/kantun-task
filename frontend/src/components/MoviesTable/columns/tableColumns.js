@@ -8,7 +8,7 @@ const columns = [
     dataIndex: 'name',
     key: 'name',
     render: (text) => text,
-    sorter: (a, b) => a.name.length - b.name.length,
+    sorter: (a, b) => a.name.localeCompare(b.name),
     width: 350,
     filterMode: 'menu',
     onFilter: (value, record) => record.name.includes(value),
