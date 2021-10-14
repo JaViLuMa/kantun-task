@@ -14,7 +14,6 @@ const columns = [
     sorter: (a, b) => a.name.localeCompare(b.name),
     filterMode: 'menu',
     width: 350,
-    fixed: 'left',
     onFilter: (value, record) => record.name.includes(value),
   },
   {
@@ -37,7 +36,7 @@ const columns = [
     dataIndex: 'explicit',
     key: 'explicit',
     filters: [...explicit],
-    width: 50,
+    width: 100,
     onFilter: (value, record) =>
       record.explicit.toString().indexOf(value) === 0,
     render: (bool) =>
@@ -53,6 +52,7 @@ const columns = [
     render: (text, record) => (
       <DeleteOutlined onClick={() => deleteMovie(record.id)} />
     ),
+    width: 100,
   },
 ];
 

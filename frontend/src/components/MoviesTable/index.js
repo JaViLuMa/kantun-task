@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import { Table } from 'antd';
+import { useMediaQuery } from 'react-responsive';
+
 import { Load, Error } from '..';
 
 import TableWrapper from './TableWrapper';
@@ -15,6 +17,8 @@ const MoviesTable = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [data, setData] = useState([]);
+
+  const smallScreen = useMediaQuery({ query: '(max-width: 730px)' });
 
   useEffect(() => {
     axios
@@ -48,7 +52,7 @@ const MoviesTable = () => {
         pagination={false}
         rowKey="id"
         bordered
-        style={{ marginTop: '64px', width: '50%' }}
+        scroll={smallScreen && { y: 500 }}
       />
     </TableWrapper>
   );
