@@ -19,7 +19,7 @@ const Navbar = () => {
     >
       <img
         src={logo}
-        style={{ width: '10%' }}
+        style={{ width: '170px' }}
         title="Lighthouse movies"
         alt="Lighthouse moives logo"
       />

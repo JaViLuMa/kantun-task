@@ -6,8 +6,8 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <MovieCreate />
       <MoviesTable />
+      <MovieCreate />
     </>
   );
 };

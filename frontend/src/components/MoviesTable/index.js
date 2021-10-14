@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
-import Loader from 'react-loader-spinner';
 import axios from 'axios';
 
 import { Table } from 'antd';
-import { TableWrapper, LoaderWrapper, ErrorWrapper } from '..';
+import { Load, Error } from '..';
+
+import TableWrapper from './TableWrapper';
 
 import { onSuccess, onFailure } from '../../utils/notifications';
 
@@ -32,19 +33,11 @@ const MoviesTable = () => {
   }, []);
 
   if (loading) {
-    return (
-      <LoaderWrapper>
-        <Loader type="Watch" color="#000000" height={100} width={100} />
-      </LoaderWrapper>
-    );
+    return <Load />;
   }
 
   if (error) {
-    return (
-      <ErrorWrapper>
-        <b>Something went wrong :(</b>
-      </ErrorWrapper>
-    );
+    return <Error />;
   }
 
   return (
@@ -55,6 +48,8 @@ const MoviesTable = () => {
         pagination={false}
         scroll={{ x: 800, y: 200 }}
         rowKey="id"
+        bordered
+        style={{ marginTop: '64px', borderBottom: '1px solid lightgray' }}
       />
     </TableWrapper>
   );
