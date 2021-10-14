@@ -1,6 +1,9 @@
 import { Tag } from 'antd';
+import { DeleteOutlined } from '@ant-design/icons';
 
 import { ratings, explicit } from './filters';
+
+import deleteMovie from '../../../utils/deleteMovie';
 
 const columns = [
   {
@@ -9,8 +12,9 @@ const columns = [
     key: 'name',
     render: (text) => text,
     sorter: (a, b) => a.name.localeCompare(b.name),
-    width: 350,
     filterMode: 'menu',
+    width: 350,
+    fixed: 'left',
     onFilter: (value, record) => record.name.includes(value),
   },
   {
@@ -42,6 +46,13 @@ const columns = [
       ) : (
         <Tag color="blue">{bool.toString()}</Tag>
       ),
+  },
+  {
+    title: 'Action',
+    key: 'action',
+    render: (text, record) => (
+      <DeleteOutlined onClick={() => deleteMovie(record.id)} />
+    ),
   },
 ];
 
