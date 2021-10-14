@@ -9,9 +9,9 @@ Repository of an interview task for Kantun.
 Install [PostgreSQL](https://www.postgresql.org/download/) and follow the setup for installation.
 After you have finished installing it, create a database and remember its password, username and name.
 
-If you are missing YARN, install it by using ```npm install -g yarn```.
-
 ## 2. Backend
+
+If you are missing YARN, install it by using ```npm install -g yarn```.
 
 Locate yourself inside ```backend``` folder using following command:
 
