@@ -26,7 +26,9 @@ app.get('/api/v1/movies', async (request, response) => {
 });
 
 app.get('/api/v1/movies/:id', async (request, response) => {
-  const results = await queriesGetOne(request.params.id);
+  const id = request.params.id;
+
+  const results = await queriesGetOne(id);
 
   response.send(results);
 });
@@ -45,7 +47,9 @@ app.post('/api/v1/movies', async (request, response) => {
 });
 
 app.put('/api/v1/movies/:id', async (request, response) => {
-  const movie = await queriesGetOne(request.params.id);
+  const id = request.params.id;
+
+  const movie = await queriesGetOne(id);
 
   let name = request.query.name || movie[0].name;
   let genre = request.query.genre || movie[0].genre;
