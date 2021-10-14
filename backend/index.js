@@ -64,7 +64,9 @@ app.put('/api/v1/movies/:id', async (request, response) => {
 });
 
 app.delete('/api/v1/movies/:id', async (request, response) => {
-  const results = mutationsDelete(request.params.id);
+  const id = request.params.id;
+
+  const results = mutationsDelete(id);
 
   response.send(await queriesGetAll());
 });
