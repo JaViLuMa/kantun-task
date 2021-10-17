@@ -7,6 +7,7 @@ const onSuccess = () => {
     style: {
       border: '1px solid green',
       backgroundColor: 'hsl(115, 100%, 80%)',
+      marginTop: '50px',
     },
   });
 };

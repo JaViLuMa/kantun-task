@@ -8,7 +8,10 @@ import logo from '../../images/logo.gif';
 
 const Navbar = () => {
   return (
-    <Menu mode="horizontal">
+    <Menu
+      mode="horizontal"
+      style={{ position: 'fixed', width: '100vw', zIndex: '101' }}
+    >
       <Menu.Item key="logo">
         <img
           src={logo}

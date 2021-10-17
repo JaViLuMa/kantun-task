@@ -7,6 +7,7 @@ const onFailure = () => {
     style: {
       border: '1px solid red',
       backgroundColor: 'hsl(0, 100%, 80%)',
+      marginTop: '50px',
     },
   });
 };
