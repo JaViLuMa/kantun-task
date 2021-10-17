@@ -62,7 +62,7 @@ const MoviesTable = () => {
           bordered
           scroll={smallScreen && { y: 500 }}
           rowClassName={(record, index) => index % 2 === 0 && classes.tableRow}
-          style={{ marginTop: '100px' }}
+          style={{ marginTop: '100px', marginBottom: '50px' }}
         >
           <Column
             title="Name"
