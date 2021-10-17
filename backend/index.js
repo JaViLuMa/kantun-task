@@ -49,20 +49,15 @@ app.post('/api/v1/movies', async (request, response) => {
 app.put('/api/v1/movies/:id', async (request, response) => {
   const id = request.params.id;
 
-  const movie = await queriesGetOne(id);
+  let name = request.body.name || movie[0].name || request.query.name;
+  let genre = request.body.genre || movie[0].genre || request.query.genre;
+  let rating = request.body.rating || movie[0].rating || request.query.rating;
+  let explicit =
+    request.body.explicit ||
+    String(movie[0].explicit) ||
+    request.query.explicit;
 
-  let name = request.query.name || movie[0].name;
-  let genre = request.query.genre || movie[0].genre;
-  let rating = request.query.rating || movie[0].rating;
-  let explicit = request.query.explicit || String(movie[0].explicit);
-
-  const results = mutationsUpdate(
-    request.params.id,
-    name,
-    genre,
-    rating,
-    explicit
-  );
+  const results = mutationsUpdate(id, name, genre, rating, explicit);
 
   response.send(await queriesGetOne(request.params.id));
 });
