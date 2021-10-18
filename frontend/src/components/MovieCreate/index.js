@@ -5,7 +5,7 @@ import { Button } from 'antd';
 
 import CreateMovieModal from './CreateMovieModal';
 
-const CreateMovie = () => {
+const MovieCreate = ({ ...rest }) => {
   const [visible, setVisible] = useState(false);
 
   const onCreate = async (values) => {
@@ -28,6 +28,7 @@ const CreateMovie = () => {
   return (
     <>
       <Button
+        {...rest}
         type="primary"
         onClick={() => {
           setVisible(true);
@@ -47,4 +48,4 @@ const CreateMovie = () => {
   );
 };
 
-export default CreateMovie;
+export default MovieCreate;

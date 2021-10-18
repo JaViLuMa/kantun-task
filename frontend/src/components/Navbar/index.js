@@ -1,29 +1,14 @@
 import React from 'react';
 
-import { Menu } from 'antd';
-
 import { MovieCreate } from '..';
 
-import logo from '../../images/logo.gif';
+import NavWrapper from './NavWrapper';
 
 const Navbar = () => {
   return (
-    <Menu
-      mode="horizontal"
-      style={{ position: 'fixed', width: '100vw', zIndex: '101' }}
-    >
-      <Menu.Item key="logo">
-        <img
-          src={logo}
-          style={{ width: '170px' }}
-          title="Lighthouse movies"
-          alt="Lighthouse moives logo"
-        />
-      </Menu.Item>
-      <Menu.Item key="add-movie" style={{ marginLeft: 'auto' }}>
-        <MovieCreate />
-      </Menu.Item>
-    </Menu>
+    <NavWrapper>
+      <MovieCreate style={{ marginLeft: 'auto', marginRight: '5vw' }} />
+    </NavWrapper>
   );
 };
 

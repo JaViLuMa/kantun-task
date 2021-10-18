@@ -9,7 +9,6 @@ import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import TableWrapper from './TableWrapper';
 
 import deleteMovie from '../../utils/deleteMovie';
-import useStyles from '../../styles/tableRows';
 
 import { Load, Error, UpdateMovie } from '..';
 import { ratings, explicit } from './filters';
@@ -25,8 +24,6 @@ const MoviesTable = () => {
   const [id, setId] = useState(null);
 
   const smallScreen = useMediaQuery({ query: '(max-width: 730px)' });
-
-  const classes = useStyles();
 
   useEffect(() => {
     axios
@@ -61,8 +58,10 @@ const MoviesTable = () => {
           rowKey="id"
           bordered
           scroll={smallScreen && { y: 500 }}
-          rowClassName={(record, index) => index % 2 === 0 && classes.tableRow}
-          style={{ marginTop: '100px', marginBottom: '50px' }}
+          style={{
+            marginTop: '100px',
+            marginBottom: '50px',
+          }}
         >
           <Column
             title="Name"
