@@ -1,23 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 
 import UpdateMovieModal from './UpdateMovieModal';
 
-const UpdateMovie = ({ data, visible, onCancel }) => {
-  const onCreate = async (values) => {
-    await axios
-      .put(`/api/v1/movies/${data.id}`, values, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-      .then((response) => {
-        console.log('Successful');
+import { updateMovie } from '../../utils/API';
 
-        window.location.reload();
-      })
-      .catch((error) => console.log(error));
+const UpdateMovie = ({ data, visible, onCancel }) => {
+  const onCreate = (values) => {
+    updateMovie(data, values);
   };
 
   return (

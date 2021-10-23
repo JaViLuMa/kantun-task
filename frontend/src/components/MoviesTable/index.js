@@ -8,7 +8,7 @@ import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 
 import TableWrapper from './TableWrapper';
 
-import deleteMovie from '../../utils/deleteMovie';
+import { deleteMovie } from '../../utils/API';
 
 import { Load, Error, UpdateMovie } from '..';
 import { ratings, explicit } from './filters';
